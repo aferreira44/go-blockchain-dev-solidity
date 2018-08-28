@@ -11,7 +11,7 @@ contract Test {
         pois estou recebendo mais gas que os 2300 gas
         que a fallback function usa por padrão
 
-        NÃO UTILIZAR POR SER UM BUG DE SEGURANÇA
+        NÃO UTILIZAR POR GERAR UM BUG DE SEGURANÇA
         */
     }
 }

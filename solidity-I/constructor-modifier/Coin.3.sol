@@ -1,23 +1,16 @@
 pragma solidity ^0.4.21;
 
 contract Coin {
-    // The keyword "public" makes those variables readable from outside.
     address public minter;
     mapping (address => uint) public balances;
 
-    // Events allow light clients to react on changes efficiently.
     event Sent(address from, address to, uint amount);
 
-    // This is the constructor whose code is run only when the contract is created.
     constructor () public {
         minter = msg.sender;
     }
 
-    function mint(address receiver, uint amount) public {
-        require(
-            msg.sender == minter,
-            "Only minter can call this function."
-        );
+    function mint(address receiver, uint amount) public onlyMinter {
         balances[receiver] += amount;
     }
 
@@ -29,5 +22,13 @@ contract Coin {
         balances[msg.sender] -= amount;
         balances[receiver] += amount;
         emit Sent(msg.sender, receiver, amount);
+    }
+
+    modifier onlyMinter {
+        require(
+            msg.sender == minter,
+            "Only minter can call this function."
+        );
+        _;
     }
 }
