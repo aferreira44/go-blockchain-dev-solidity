@@ -1,6 +1,7 @@
 pragma solidity ^0.4.24;
 
 contract Storage {
+    // uint[] public numbers;
     uint public sum = 0;
 
     function storeSum(uint x) public {

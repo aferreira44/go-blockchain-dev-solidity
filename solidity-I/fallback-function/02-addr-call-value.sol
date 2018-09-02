@@ -19,7 +19,7 @@ contract Test {
 contract Caller {
     Test test = Test(0x000);
 
-    function sendEther(uint _value) public payable {
-        address(test).call.value(_value)();
+    function sendEther() public payable {
+        address(test).call.value(msg.value)();
     }
 }

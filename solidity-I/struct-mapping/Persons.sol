@@ -18,7 +18,7 @@ contract Persons {
         person.fName = _fName;
         person.lName = _lName;
         
-        personsAccts.push(_address) - 1;
+        personsAccts.push(_address);
     }
     
     function getPersons() public view returns(address[]) {

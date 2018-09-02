@@ -12,6 +12,7 @@ contract Widthdraw {
         address myContract = this;
         if (sender.balance < myContract.balance) {
             sender.transfer(myContract.balance);
+            // require(sender.send(myContract.balance), "Send error");
         }
     }
     
